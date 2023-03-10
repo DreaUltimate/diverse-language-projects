@@ -1,11 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <cstdio>
-#include <cstring>
-
-using namespace std;
-
 class Student {
     int rollno;
     char name[50];
@@ -15,71 +7,40 @@ public:
     void display();
     void write();
     void read_file();
+    bool validate_rollno(int rollno);
+    bool validate_marks(int marks[]);
 };
 
 void Student::read() {
     cout << "\nEnter Roll number: ";
     cin >> rollno;
+    if (!validate_rollno(rollno)) {
+        cout << "Invalid Roll Number! Please Try Again." << endl;
+        return;
+    }
     cout << "Enter Name: ";
     cin >> name;
     for(int i=0; i<6; i++) {
         cout << "Enter marks of subject " << i+1 << ": ";
         cin >> marks[i];
-    }
-}
-
-void Student::display() {
-    cout << "\nRoll Number: " << rollno << endl;
-    cout << "Name: " << name << endl;
-    for(int i=0; i<6; i++) {
-        cout << "Marks of Subject " << i+1 << ": " << marks[i] << endl;
-    }
-    cout << endl;
-}
-
-void Student::write() {
-    ofstream outfile;
-    outfile.open("students.txt", ios::out | ios::app);
-    outfile.write((char*)this, sizeof(*this));
-    outfile.close();
-}
-
-void Student::read_file() {
-    ifstream infile;
-    infile.open("students.txt", ios::in);
-    if(!infile) {
-        cout << "Error opening file!";
-        return;
-    }
-    while(infile.read((char*)this, sizeof(*this))) {
-        display();
-    }
-    infile.close();
-}
-
-int main() {
-    int choice;
-    Student s;
-    while(true) {
-        cout << "\nStudent Management System\n";
-        cout << "1. Add Student\n";
-        cout << "2. View Students\n";
-        cout << "3. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-        switch(choice) {
-            case 1:
-                s.read();
-                s.write();
-                break;
-            case 2:
-                s.read_file();
-                break;
-            case 3:
-                exit(0);
-            default:
-                cout << "\nInvalid Choice! Please Try Again.\n";
+        if (!validate_marks(marks)) {
+            cout << "Invalid Marks! Please Try Again." << endl;
+            return;
         }
     }
-    return 0;
+}
+
+bool Student::validate_rollno(int rollno) {
+    // Check that roll number is within valid range
+    return (rollno > 0 && rollno <= 1000);
+}
+
+bool Student::validate_marks(int marks[]) {
+    // Check that all marks are within valid range
+    for(int i=0; i<6; i++) {
+        if(marks[i] < 0 || marks[i] > 100) {
+            return false;
+        }
+    }
+    return true;
 }
