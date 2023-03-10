@@ -1,0 +1,30 @@
+Minecraft Scripts
+This repository contains a collection of scripts written in JavaScript for use in the popular game Minecraft. These scripts can be used to automate tasks, build structures, and enhance the player's experience.
+
+Getting Started
+To use these scripts, you'll need to install the Minecraft Forge mod loader and the ScriptCraft mod. ScriptCraft is a Minecraft mod that allows players to write and run JavaScript code directly in the game.
+
+To install ScriptCraft, follow these steps:
+
+Download the latest version of ScriptCraft from the official website.
+Copy the downloaded ScriptCraft .jar file to your Minecraft "mods" folder.
+Launch Minecraft using the Forge profile.
+Open the ScriptCraft console by pressing the "/" key and typing "jsp" (without the quotes).
+Start running the scripts!
+Scripts
+This repository contains the following scripts:
+
+build-house.js: Builds a basic wooden house with a cobblestone foundation and glass windows.
+modern-house.js: Builds a modern house with a sleek design, large windows, and a swimming pool.
+pick-up.js: Allows the player to pick up and move any block in the game.
+attack.js: Adds a new attack ability to the player, allowing them to deal more damage to enemies.
+Usage
+To use a script, simply copy and paste the code into the ScriptCraft console and hit enter. The script will run automatically and build the desired structure or perform the desired action.
+
+Note that some scripts may require additional setup or configuration before they can be used. Be sure to read the script comments and instructions carefully before running the script.
+
+Contributing
+If you have a script that you'd like to contribute to this repository, please open a pull request with your changes. All contributions are welcome!
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
