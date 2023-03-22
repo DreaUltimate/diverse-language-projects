@@ -1,15 +1,45 @@
 // Define crafting recipes
 const recipes = {
   "wooden_pickaxe": {
-    "ingredients": ["wood", "wood", "wood", null, "stick", null, null, "stick", null],
+    "ingredients": [
+      "wood",
+      "wood",
+      "wood",
+      null,
+      "stick",
+      null,
+      null,
+      "stick",
+      null
+    ],
     "result": "wooden_pickaxe"
   },
   "stone_pickaxe": {
-    "ingredients": ["cobblestone", "cobblestone", "cobblestone", null, "stick", null, null, "stick", null],
+    "ingredients": [
+      "cobblestone",
+      "cobblestone",
+      "cobblestone",
+      null,
+      "stick",
+      null,
+      null,
+      "stick",
+      null
+    ],
     "result": "stone_pickaxe"
   },
   "iron_pickaxe": {
-    "ingredients": ["iron_ingot", "iron_ingot", "iron_ingot", null, "stick", null, null, "stick", null],
+    "ingredients": [
+      "iron_ingot",
+      "iron_ingot",
+      "iron_ingot",
+      null,
+      "stick",
+      null,
+      null,
+      "stick",
+      null
+    ],
     "result": "iron_pickaxe"
   }
 };
@@ -40,7 +70,7 @@ const craftingTable = {
             return result;
           }
         });
-        console.log("Crafted " + result + "!");
+        console.log(`Crafted ${result}!`);
         return;
       }
     }
@@ -52,3 +82,4 @@ const craftingTable = {
 craftingTable.slots = ["wood", "wood", "wood", null, "stick", null, null, "stick", null];
 craftingTable.craft(); // Outputs "Crafted wooden_pickaxe!"
 console.log(craftingTable.slots); // Outputs [null, null, null, null, null, null, null, null, "wooden_pickaxe"]
+
