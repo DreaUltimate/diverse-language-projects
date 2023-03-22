@@ -1,6 +1,6 @@
-// Create a function that builds a house with specified dimensions
-function buildHouse(width, height, depth) {
-  // First, build the walls
+// This function builds a house with the specified dimensions using the provided player object
+function buildHouse(player, width, height, depth) {
+  // Build the walls
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       for (let z = 0; z < depth; z++) {
@@ -14,8 +14,8 @@ function buildHouse(width, height, depth) {
       }
     }
   }
-  
-  // Now, build the roof
+
+  // Build the roof
   for (let x = 0; x < width; x++) {
     for (let z = 0; z < depth; z++) {
       player.placeBlock(x, height, z, 'stone');
@@ -23,5 +23,13 @@ function buildHouse(width, height, depth) {
   }
 }
 
+// Create a player object
+const player = {
+  placeBlock: function(x, y, z, blockType) {
+    // This function simulates placing a block of the specified type at the specified location
+    console.log(`Placing block of type ${blockType} at (${x}, ${y}, ${z})`);
+  }
+};
+
 // Call the function to build a 10x6x8 house
-buildHouse(10, 6, 8);
+buildHouse(player, 10, 6, 8);
