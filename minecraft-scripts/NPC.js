@@ -1,13 +1,13 @@
-// Define the NPC class
-class NPC {
+// Define the NonPlayableCharacter class
+class NonPlayableCharacter {
   constructor(name, type, health, inventory) {
     this.name = name;
     this.type = type;
-    this.health = health;
-    this.inventory = inventory;
+    this._health = health;
+    this._inventory = inventory;
   }
 
-  talk() {
+  displayDialogBox() {
     // Show a dialog box with the NPC's dialogue
     // ...
   }
@@ -21,22 +21,51 @@ class NPC {
     // Implement NPC attack behavior
     // ...
   }
+
+  get health() {
+    return this._health;
+  }
+
+  set health(newHealth) {
+    if (newHealth < 0) {
+      throw new Error("Health cannot be negative.");
+    }
+    this._health = newHealth;
+  }
+
+  get inventory() {
+    return this._inventory;
+  }
+
+  set inventory(newInventory) {
+    this._inventory = newInventory;
+  }
 }
 
-// Create some NPC instances
-const friendlyNPC = new NPC("Bob", "friendly", 100, ["apple", "sword"]);
-const hostileNPC = new NPC("Goblin", "hostile", 50, ["dagger", "gold"]);
+// Create some NonPlayableCharacter instances
+const friendlyNPC = new NonPlayableCharacter("Bob", "friendly", 100, ["apple", "sword"]);
+const hostileNPC = new NonPlayableCharacter("Goblin", "hostile", 50, ["dagger", "gold"]);
 
 // Handle player interaction with NPCs
 function interactWithNPC(npc) {
-  if (npc.type === "friendly") {
-    npc.talk();
-    npc.trade();
-  } else if (npc.type === "hostile") {
-    npc.attack();
+  switch(npc.type) {
+    case "friendly":
+      npc.displayDialogBox();
+      npc.trade();
+      break;
+    case "hostile":
+      npc.attack();
+      break;
+    default:
+      throw new Error("Invalid NPC type.");
   }
 }
 
 // Example usage
-interactWithNPC(friendlyNPC);
-interactWithNPC(hostileNPC);
+try {
+  interactWithNPC(friendlyNPC);
+  interactWithNPC(hostileNPC);
+} catch (error) {
+  console.error(error);
+}
+
