@@ -35,6 +35,13 @@ describe('addNumbers', () => {
   const result = numbers.reduce(addNumbers, 0);
   expect(result).toEqual(18);
   });
+  
+  test('should add two large numbers correctly', () => {
+  const a = 12345678901234567890;
+  const b = 98765432109876543210;
+  const result = addNumbers(a, b);
+  expect(result).toEqual(111111111111111111100);
+  });
 });
 
 
