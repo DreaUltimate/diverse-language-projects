@@ -1,6 +1,4 @@
-function addNumbers(a, b) {
-  return a + b;
-}
+const addNumbers = (a, b) => a + b;
 
 describe('addNumbers', () => {
   it('should add two positive numbers correctly', () => {
@@ -27,7 +25,5 @@ describe('addNumbers', () => {
     expect(() => addNumbers()).toThrow();
   });
 });
-In this improved version, the it block descriptions use the word "should" to indicate the expected behavior of the function. Additionally, each test case assigns the result of calling the addNumbers function to a variable
-
 
 
