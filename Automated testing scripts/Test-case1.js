@@ -29,6 +29,12 @@ describe('addNumbers', () => {
   const result = addNumbers(0.1, 0.2);
   expect(result).toBeCloseTo(0.3);
   });
+  
+  test('should add an array of numbers correctly', () => {
+  const numbers = [2, 3, 5, 8];
+  const result = numbers.reduce(addNumbers, 0);
+  expect(result).toEqual(18);
+  });
 });
 
 
