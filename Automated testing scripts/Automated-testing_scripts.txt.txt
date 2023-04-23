@@ -1,0 +1,1 @@
+Automated testing scripts - These scripts help to ensure that code changes do not break existing functionality by running automated tests. Popular testing frameworks include Jest for JavaScript 
