@@ -24,6 +24,11 @@ describe('addNumbers', () => {
   test('should throw an error if no arguments are passed', () => {
     expect(() => addNumbers()).toThrow();
   });
+  
+  test('should add two decimal numbers correctly', () => {
+  const result = addNumbers(0.1, 0.2);
+  expect(result).toBeCloseTo(0.3);
+  });
 });
 
 
